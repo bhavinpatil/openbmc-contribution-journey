@@ -1,0 +1,2 @@
+# openbmc-contribution-journey
+
