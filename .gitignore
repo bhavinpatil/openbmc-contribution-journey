@@ -1,5 +1,7 @@
 # Ignore all build directories
 **/build/
+*.out
+system-programming/*.out
 
 # CMake-generated files
 CMakeFiles/
