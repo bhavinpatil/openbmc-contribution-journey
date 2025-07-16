@@ -9,7 +9,9 @@ int main(){
         return 1;
     }
 
-    char buffer[128];
+    std::cout<<"File Descriptor: "<<fd<<std::endl;
+
+    char buffer[8];
     int byteRead;
 
     while((byteRead = read(fd, buffer, sizeof(buffer)))>0){
