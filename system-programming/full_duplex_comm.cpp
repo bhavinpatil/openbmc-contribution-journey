@@ -1,6 +1,8 @@
 #include <unistd.h>
 #include <iostream>
 #include <cstring>
+#include <thread>
+#include <chrono>
 
 int main()
 {
@@ -38,6 +40,8 @@ int main()
 
         const char *child_reply = "This reply messsage is from Child to Parent! Enjoy!";
 
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+
         write(pipefd2[1], child_reply, strlen(child_reply));
 
         close(pipefd1[0]);
@@ -52,6 +56,8 @@ int main()
         close(pipefd2[1]); // closes write end as parent will read the reply from child from pipe[0];
 
         const char *parent_msg = "This message is from parent to Child and will get the reply after this msg received by child!";
+
+        std::this_thread::sleep_for(std::chrono::seconds(5));
 
         write(pipefd1[1], parent_msg, strlen(parent_msg));
 
