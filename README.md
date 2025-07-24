@@ -1,164 +1,76 @@
-## 🔥 STAGE 1: 2-Week Learning Plan
+# 🔧 OpenBMC Contribution Journey — A Learning Path for New Contributors
 
-Focus: **Makefiles, CMake, Linux system programming, D-Bus, and scripting**
+This repository serves as a practical and structured learning path for developers who want to start contributing to **C++-driven open-source firmware and embedded Linux projects** like [OpenBMC](https://github.com/openbmc).
 
-### 📅 Week 1: *Build System + System Programming*
-
----
-
-### ✅ **DAY 1–2: Makefiles**
-
-* **Goal**: Understand how projects are compiled using `make`
-* **Topics**:
-
-  * Variables
-  * Targets & dependencies
-  * `make clean`, `make all`
-  * Include paths and linking flags
-
-**Resources**:
-
-* [https://makefiletutorial.com/](https://makefiletutorial.com/)
-* [This GitHub project to practice](https://github.com/mbcrawfo/simple-makefile-example)
-
-🛠 **Task**:
-
-* Write a `Makefile` for a small C++ project (2-3 files using a class).
-* Add `make run`, `make clean` targets.
+It is especially useful for those without access to real hardware — just a Linux machine or VM is enough to follow along.
 
 ---
 
-### ✅ **DAY 3–4: CMake**
+## 🎯 Why This Repository?
 
-* **Goal**: Learn modern cross-platform builds with CMake
-* **Topics**:
+Projects like OpenBMC are large and complex, often built on top of:
+- C++
+- Linux system APIs
+- D-Bus (inter-process communication)
+- Build systems like Make, CMake, and Yocto
 
-  * `CMakeLists.txt` structure
-  * `target_link_libraries`, `add_executable`, `include_directories`
-
-**Resources**:
-
-* [Official CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
-* Practice repo: [CMake Examples](https://github.com/ttroy50/cmake-examples)
-
-🛠 **Task**:
-
-* Convert the same Makefile-based C++ project into a CMake-based build.
-* Add one external dependency (e.g., fmtlib or nlohmann/json via `FetchContent`)
+This repository offers a step-by-step approach to build the foundational skills required to explore, understand, and eventually contribute to such ecosystems.
 
 ---
 
-### ✅ **DAY 5–7: Linux System Programming (Basics)**
+## 📚 What You'll Learn
 
-* **Goal**: Learn to interact with OS-level APIs
-* **Topics**:
+This learning path is divided into focused stages, each with example code, explanations, and hands-on exercises:
 
-  * File I/O (`open`, `read`, `write`, `close`)
-  * Process management (`fork`, `exec`, `wait`)
-  * Signals (`signal`, `kill`)
+### 🧱 Stage 1 — Core Skills
+- Basics of `Makefile` and `CMake` build systems
+- Writing Linux system programs using `fork`, `exec`, file I/O, and signals
+- Shell scripting to automate common developer/system tasks
+- Intro to Python scripting for testing and tooling
+- D-Bus fundamentals: services, signals, method calls
 
-**Resources**:
+### 🔍 Stage 2 — Exploring OpenBMC-Like Architecture
+- Setting up and running OpenBMC on QEMU (virtual machine)
+- Understanding OpenBMC services and D-Bus interfaces
+- Exploring C++ services like `phosphor-logging`, `phosphor-time-manager`
+- Inspecting D-Bus communication with `busctl` and writing mock services
 
-* Book (Free PDF): [Linux System Programming (Love)](https://github.com/s-matyukevich/Linux-System-Programming)
-* [This repo with simple system programming examples](https://github.com/brenns10/lss)
-
-🛠 **Task**:
-
-* Write a small program that forks a child process.
-* In child, run a command using `execvp` (e.g., `ls`).
-* In parent, wait and print child's exit status.
-
----
-
-### 📅 Week 2: *D-Bus, Shell/Python Scripting*
-
----
-
-### ✅ **DAY 8–10: D-Bus Fundamentals**
-
-* **Goal**: Understand the basics of inter-process communication on Linux
-* **Topics**:
-
-  * What is D-Bus (system vs session)
-  * Using `busctl` to inspect services
-  * Writing a basic D-Bus service/client
-
-**Resources**:
-
-* [Beginner-friendly D-Bus tutorial in Python](https://dbus.freedesktop.org/doc/dbus-python/tutorial.html)
-* CLI tool: `busctl --user list`
-
-🛠 **Task**:
-
-* Write a D-Bus server in Python or C++ that exposes a simple method (e.g., "SayHello").
-* Write a client to call it.
+### 🧩 Stage 3 — Making Real-World Contributions
+- Finding beginner-friendly issues (`good first issue`) in OpenBMC or related repos
+- Submitting documentation or test improvements
+- Writing patches for small bugs, cleanup, or logging enhancements
+- Contributing tools (log parsers, service watchers, test scripts)
 
 ---
 
-### ✅ **DAY 11–12: Shell Scripting Practice**
+## 🗂️ Repository Structure
+```
+openbmc-contribution-journey/
+├── makefile-project/ # C++ project using Makefile
+├── cmake-project/ # C++ project built with CMake
+├── system-programming/ # Fork, exec, signals, file I/O examples
+├── dbus/ # Basic D-Bus service + client
+├── shell-scripts/ # Bash scripts for system automation
+├── python-tools/ # Python CLI tools and utilities
+├── README.md # This file
+```
 
-* **Goal**: Be able to write quick tools to automate tasks
-* **Topics**:
-
-  * Variables, conditionals, loops
-  * `awk`, `grep`, `cut`, `xargs`
-  * Script arguments
-
-**Resources**:
-
-* [Shell scripting crash course](https://devhints.io/bash)
-* Practice: [Shell scripting examples](https://github.com/dylanaraps/pure-bash-bible)
-
-🛠 **Task**:
-
-* Write a script to:
-
-  * List files > 100MB in a directory
-  * Monitor a log file for the word “ERROR” and alert you
 
 ---
 
-### ✅ **DAY 13–14: Python Practice (for testing/tools)**
+## 🤝 Contributing
 
-* **Goal**: Brush up Python basics so you can write test scripts and tools
-* **Topics**:
+If you're learning alongside this or want to improve the examples, feel free to:
+- Open issues or pull requests
+- Suggest improvements or add your own learning examples
 
-  * File I/O, functions, classes
-  * CLI tools using `argparse`
-  * JSON/YAML handling
-
-🛠 **Task**:
-
-* Write a Python script that reads a JSON config and prints system info (like `os`, `platform`, etc).
-* Write another script to ping a list of IPs from a text file.
+This repo is intentionally minimal and beginner-friendly — anyone is welcome to join the journey.
 
 ---
 
-## 📦 Final Outcome of Stage 1
+## 📫 Contact
 
-By the end of 2 weeks, you’ll have:
-
-* Created and built a small C++ project with both Make and CMake
-* Written basic system programs using Linux syscalls
-* Created a working D-Bus service and client
-* Built basic Python + Shell scripts
-* Gained confidence with tools used by OpenBMC contributors
+Maintained by [@bhavinpatil](https://github.com/bhavinpatil)  
+Pull requests and discussions are always welcome.
 
 ---
-
-## 📘 Optional Template Repo for Practice
-
-I'll prepare a **template GitHub repo** for this 2-week challenge if you want to track it publicly and use it as a portfolio. Let me know!
-
----
-
-## 👉 What Next?
-
-You can start **Day 1 today**. Just reply here with any help you need while doing the task or understanding the material.
-
-Also let me know:
-
-* Do you want a public GitHub repo for your learning projects?
-* Do you want me to track your progress as you go and give feedback?
-
-I’ll be here throughout the journey.
