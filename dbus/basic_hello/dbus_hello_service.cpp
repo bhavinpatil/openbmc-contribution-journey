@@ -4,7 +4,6 @@
 #include<unistd.h> 
 #include<cstring> // for c string functions
 
-
 void reply_to_method_call(DBusMessage* msg, DBusConnection* conn){
     DBusMessage* reply;
     DBusMessageIter args;
