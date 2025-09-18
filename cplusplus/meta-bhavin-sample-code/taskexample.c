@@ -19,4 +19,9 @@ int main(){
             printf("Bye, keep learning and practicing!\n");
         #endif
     #endif
+
+    #ifdef THANKYOU
+        #if THANKYOU == y
+            printf("Thank you for your time!\n");
+        #endif
 }
