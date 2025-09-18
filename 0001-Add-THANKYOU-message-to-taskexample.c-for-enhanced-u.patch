@@ -1,0 +1,28 @@
+From eec843906dddade70ec2a1015739b1bb4f660fd6 Mon Sep 17 00:00:00 2001
+From: Bhavin Patil <bhavinpatil56@gmail.com>
+Date: Thu, 18 Sep 2025 06:58:08 +0000
+Subject: [PATCH] Add THANKYOU message to taskexample.c for enhanced user
+ interaction
+Upstream-Status: Inappropriate [OpenBMC training/demo code]
+---
+ cplusplus/meta-bhavin-sample-code/taskexample.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/cplusplus/meta-bhavin-sample-code/taskexample.c b/cplusplus/meta-bhavin-sample-code/taskexample.c
+index 9e8d04e..b44bdde 100644
+--- a/cplusplus/meta-bhavin-sample-code/taskexample.c
++++ b/cplusplus/meta-bhavin-sample-code/taskexample.c
+@@ -19,4 +19,9 @@ int main(){
+             printf("Bye, keep learning and practicing!\n");
+         #endif
+     #endif
++
++    #ifdef THANKYOU
++        #if THANKYOU == y
++            printf("Thank you for your time!\n");
++        #endif
+ }
+\ No newline at end of file
+-- 
+2.25.1
+
