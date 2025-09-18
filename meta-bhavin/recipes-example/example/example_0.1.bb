@@ -191,7 +191,7 @@ PREPEND5 =+ "Dos"
 # :remove     : removes value from list specifically removes all occurances of that value
 
 REMOVE1 = "A B A B A A C"
-REMOVE1:remove ="A"
+REMOVE1:remove = "A"
 
 # black@bhavin:~/openbmc/build/qemuarm$ bitbake -e example | grep ^REMOVE1
 # REMOVE1=" B  B   C"
