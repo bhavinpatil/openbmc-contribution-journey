@@ -24,4 +24,6 @@ int main(){
         #if THANKYOU == y
             printf("Thank you for your time!\n");
         #endif
+    #endif
+    return 0;
 }
