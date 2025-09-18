@@ -1,0 +1,10 @@
+[Unit]
+Description=Bhavin Demo D-Bus Service
+After=dbus.service
+
+[Service]
+ExecStart=/usr/bin/bhavin-demo-service
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
