@@ -1,0 +1,41 @@
+From b11e0c5f6b33ade9334d9ac7c29aeed14fd10774 Mon Sep 17 00:00:00 2001
+From: Bhavin Patil <bhavinpatil56@gmail.com>
+Date: Thu, 18 Sep 2025 08:27:39 +0000
+Subject: [PATCH] Updated taskexample.c file to include local header file
+ taskexample.h
+Upstream-Status: Inappropriate [OpenBMC training/demo code]
+
+---
+ .vscode/settings.json                           | 4 +++-
+ cplusplus/meta-bhavin-sample-code/taskexample.c | 2 +-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/.vscode/settings.json b/.vscode/settings.json
+index ce281ca..1e117ee 100644
+--- a/.vscode/settings.json
++++ b/.vscode/settings.json
+@@ -83,7 +83,9 @@
+         "span": "cpp",
+         "stop_token": "cpp",
+         "*.conf": "bitbake",
+-        "*.inc": "bitbake"
++        "*.inc": "bitbake",
++        "taskexample.h": "c",
++        "stdio.h": "c"
+     },
+     "python.autoComplete.extraPaths": [
+         "${workspaceFolder}/sources/poky/bitbake/lib",
+diff --git a/cplusplus/meta-bhavin-sample-code/taskexample.c b/cplusplus/meta-bhavin-sample-code/taskexample.c
+index b44bdde..82d1206 100644
+--- a/cplusplus/meta-bhavin-sample-code/taskexample.c
++++ b/cplusplus/meta-bhavin-sample-code/taskexample.c
+@@ -1,5 +1,5 @@
+ #include<stdio.h>
+-#include<taskexample.h>
++#include taskexample.h  
+ 
+ int main(){
+     #ifdef WELCOME
+-- 
+2.25.1
+

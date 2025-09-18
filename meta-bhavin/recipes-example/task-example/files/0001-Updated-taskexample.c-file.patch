@@ -1,0 +1,106 @@
+From be33ea24713fcee5ce932bd787cbb1f922e4d501 Mon Sep 17 00:00:00 2001
+From: Bhavin Patil <bhavinpatil56@gmail.com>
+Date: Thu, 18 Sep 2025 08:40:55 +0000
+Subject: [PATCH] Updated taskexample.c file
+Upstream-Status: Inappropriate [OpenBMC training/demo code]
+---
+ ...e-taskexample.c-file-for-header-issu.patch | 73 +++++++++++++++++++
+ .../meta-bhavin-sample-code/taskexample.c     |  4 +-
+ 2 files changed, 76 insertions(+), 1 deletion(-)
+ create mode 100644 0001-Again-Updated-the-taskexample.c-file-for-header-issu.patch
+
+diff --git a/0001-Again-Updated-the-taskexample.c-file-for-header-issu.patch b/0001-Again-Updated-the-taskexample.c-file-for-header-issu.patch
+new file mode 100644
+index 0000000..354f8f1
+--- /dev/null
++++ b/0001-Again-Updated-the-taskexample.c-file-for-header-issu.patch
+@@ -0,0 +1,73 @@
++From be876c96c1263d710e501aff2690e3ba42c19a4c Mon Sep 17 00:00:00 2001
++From: Bhavin Patil <bhavinpatil56@gmail.com>
++Date: Thu, 18 Sep 2025 08:35:50 +0000
++Subject: [PATCH] Again Updated the taskexample.c file for header issue
++Upstream-Status: Inappropriate [OpenBMC training/demo code]
++
++---
++ ...ple.c-file-to-include-local-header-f.patch | 41 +++++++++++++++++++
++ .../meta-bhavin-sample-code/taskexample.c     |  2 +-
++ 2 files changed, 42 insertions(+), 1 deletion(-)
++ create mode 100644 0001-Updated-taskexample.c-file-to-include-local-header-f.patch
++
++diff --git a/0001-Updated-taskexample.c-file-to-include-local-header-f.patch b/0001-Updated-taskexample.c-file-to-include-local-header-f.patch
++new file mode 100644
++index 0000000..8b4642a
++--- /dev/null
+++++ b/0001-Updated-taskexample.c-file-to-include-local-header-f.patch
++@@ -0,0 +1,41 @@
+++From b11e0c5f6b33ade9334d9ac7c29aeed14fd10774 Mon Sep 17 00:00:00 2001
+++From: Bhavin Patil <bhavinpatil56@gmail.com>
+++Date: Thu, 18 Sep 2025 08:27:39 +0000
+++Subject: [PATCH] Updated taskexample.c file to include local header file
+++ taskexample.h
+++Upstream-Status: Inappropriate [OpenBMC training/demo code]
+++
+++---
+++ .vscode/settings.json                           | 4 +++-
+++ cplusplus/meta-bhavin-sample-code/taskexample.c | 2 +-
+++ 2 files changed, 4 insertions(+), 2 deletions(-)
+++
+++diff --git a/.vscode/settings.json b/.vscode/settings.json
+++index ce281ca..1e117ee 100644
+++--- a/.vscode/settings.json
++++++ b/.vscode/settings.json
+++@@ -83,7 +83,9 @@
+++         "span": "cpp",
+++         "stop_token": "cpp",
+++         "*.conf": "bitbake",
+++-        "*.inc": "bitbake"
++++        "*.inc": "bitbake",
++++        "taskexample.h": "c",
++++        "stdio.h": "c"
+++     },
+++     "python.autoComplete.extraPaths": [
+++         "${workspaceFolder}/sources/poky/bitbake/lib",
+++diff --git a/cplusplus/meta-bhavin-sample-code/taskexample.c b/cplusplus/meta-bhavin-sample-code/taskexample.c
+++index b44bdde..82d1206 100644
+++--- a/cplusplus/meta-bhavin-sample-code/taskexample.c
++++++ b/cplusplus/meta-bhavin-sample-code/taskexample.c
+++@@ -1,5 +1,5 @@
+++ #include<stdio.h>
+++-#include<taskexample.h>
++++#include taskexample.h  
+++ 
+++ int main(){
+++     #ifdef WELCOME
+++-- 
+++2.25.1
+++
++diff --git a/cplusplus/meta-bhavin-sample-code/taskexample.c b/cplusplus/meta-bhavin-sample-code/taskexample.c
++index 82d1206..8b89493 100644
++--- a/cplusplus/meta-bhavin-sample-code/taskexample.c
+++++ b/cplusplus/meta-bhavin-sample-code/taskexample.c
++@@ -1,5 +1,5 @@
++ #include<stdio.h>
++-#include taskexample.h  
+++#include "taskexample.h"  
++ 
++ int main(){
++     #ifdef WELCOME
++-- 
++2.25.1
++
+diff --git a/cplusplus/meta-bhavin-sample-code/taskexample.c b/cplusplus/meta-bhavin-sample-code/taskexample.c
+index 8b89493..6e26d5f 100644
+--- a/cplusplus/meta-bhavin-sample-code/taskexample.c
++++ b/cplusplus/meta-bhavin-sample-code/taskexample.c
+@@ -24,4 +24,6 @@ int main(){
+         #if THANKYOU == y
+             printf("Thank you for your time!\n");
+         #endif
+-}
+\ No newline at end of file
++    #endif
++    return 0;
++}
+-- 
+2.25.1
+
