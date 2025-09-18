@@ -1,0 +1,54 @@
+SUMMARY = "Bhavin Demo D-Bus Service"
+DESCRIPTION = "Custom D-Bus service exposing xyz.openbmc_project.Bhavin.Demo interface"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/Apache-2.0;md5=89aea4e17d99a7cacdbeed46a0096b10"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+
+SRC_URI = "file://main.cpp \
+           file://Makefile \
+           file://bhavin-demo.service \
+          "
+
+DEPENDS = "dbus pkgconfig-native"
+
+inherit systemd
+
+SYSTEMD_PACKAGES = "${PN}"
+SYSTEMD_SERVICE:${PN} = "bhavin-demo.service"
+
+# Don't set S - let it default, then copy files in do_compile
+do_configure[noexec] = "1"
+
+do_compile() {
+    # Create build directory and copy files there
+    cd ${B}
+    
+    # Debug: Check where files actually are
+    echo "Contents of WORKDIR:"
+    ls -la ${WORKDIR}/
+    echo "Contents of sources-unpack:"
+    ls -la ${WORKDIR}/sources-unpack/ 2>/dev/null || echo "sources-unpack not found"
+    
+    # Copy source files from sources-unpack to build directory
+    cp ${WORKDIR}/sources-unpack/main.cpp ${B}/
+    cp ${WORKDIR}/sources-unpack/Makefile ${B}/
+    cp ${WORKDIR}/sources-unpack/bhavin-demo.service ${B}/
+    
+    # Debug: show what we copied
+    echo "Files copied to build directory:"
+    ls -la ${B}/
+    
+    # Compile
+    oe_runmake CROSS_CXX="${CXX}"
+}
+
+do_install() {
+    install -d ${D}${bindir}
+    install -m 0755 ${B}/bhavin-demo-service ${D}${bindir}/bhavin-demo-service
+    
+    install -d ${D}${systemd_system_unitdir}
+    install -m 0644 ${B}/bhavin-demo.service ${D}${systemd_system_unitdir}/
+}
+
+FILES:${PN} += "${systemd_system_unitdir}/*"

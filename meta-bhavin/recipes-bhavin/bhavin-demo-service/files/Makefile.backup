@@ -1,0 +1,19 @@
+SRC := main.cpp
+TARGET := bhavin-demo-service
+
+# Set PKG_CONFIG if not already set
+PKG_CONFIG ?= pkg-config
+
+# Use PKG_CONFIG_PATH from the build environment
+CXXFLAGS += -std=c++11 -O2 $(shell $(PKG_CONFIG) --cflags dbus-1)
+LDLIBS   += $(shell $(PKG_CONFIG) --libs dbus-1)
+
+.PHONY: all clean
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CROSS_CXX) $(CXXFLAGS) -o $@ $^ $(LDLIBS)
+
+clean:
+	rm -f $(TARGET)
