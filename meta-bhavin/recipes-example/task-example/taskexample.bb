@@ -55,10 +55,10 @@ S = "${WORKDIR}/git"
 # /task-example/files/0001-Add-THANKYOU-message-to-taskexample.c-for-enhanced-u.patch to 
 # /home/black/openbmc/build/qemuarm/tmp/work/cortexa15t2hf-neon-openbmc-linux-gnueabi/taskexample/1.0/sources-unpack/
 
-SRC_URI:append = " file://0001-Add-THANKYOU-message-to-taskexample.c-for-enhanced-u.patch"
-SRC_URI:append = " file://0001-Updated-taskexample.c-file-to-include-local-header-f.patch"
-SRC_URI:append = " file://0001-Again-Updated-the-taskexample.c-file-for-header-issu.patch"
-SRC_URI:append = " file://0001-Updated-taskexample.c-file.patch"
+# SRC_URI:append = " file://0001-Add-THANKYOU-message-to-taskexample.c-for-enhanced-u.patch"
+# SRC_URI:append = " file://0001-Updated-taskexample.c-file-to-include-local-header-f.patch"
+# SRC_URI:append = " file://0001-Again-Updated-the-taskexample.c-file-for-header-issu.patch"
+# SRC_URI:append = " file://0001-Updated-taskexample.c-file.patch"
 # SRC_URI:append = " file://*.patch"
 
 # black@bhavin:~/openbmc/build/qemuarm$ bitbake -c do_patch taskexample -v -------- command to run patch task explicitly
