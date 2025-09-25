@@ -10,3 +10,6 @@ cmake_install.cmake
 Makefile
 cmake
 .vscode
+
+# Ignore all exe files
+**/*.exe
